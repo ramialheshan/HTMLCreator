@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<!-- Created with Ai->Canvas Export Plug-In Version 1.0 (PC)  -->
+<!-- By Mike Swanson (http://blogs.msdn.com/mswanson/)        -->
+<!-- and MIX Online  (http://visitmix.com/)                   -->
+
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <title>tmp</title>
+  <script src="Ai2CanvasAnimation.js"></script>
+<script src="excanvas2.js"></script>
+  <script>
+
+    // Main canvas and context references
+    var canvas;
+    var ctx;
+
+    // Frames per second
+    var fps = 60.0;
+
+    function init() {
+
+      // Set main canvas and context references
+      canvas = document.getElementById("canvas");
+      ctx = canvas.getContext("2d");
+
+      // Initialize animations
+      moon.rotateClock = new clock(5.00, 0.00, 1, false, 0, linear, 2.0 * Math.PI, 1.00, 0.0000);
+
+      // Start animation clocks
+      moon.rotateClock.start();
+
+      // Set animation timer
+      setInterval(drawFrame, (1000 / fps));
+    }
+
+    function updateAnimations() {
+
+      // Update animation clocks
+      updateAllClocks();
+    }
+
+    function drawFrame() {
+
+      // Update animations
+      updateAnimations();
+
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      draw(ctx);
+
+      ctx.save();
+      ctx.translate(8.3, 492.2);
+      ctx.rotate(moon.rotateClock.value);
+      moon(ctx);
+      ctx.restore();
+    }
+
+    function draw(ctx) {
+
+      // background/ 
+      ctx.save();
+      ctx.save();
+      ctx.transform(1.000, 0.000, 0.000, 1.000, 400.0, 287.5);
+      ctx.drawImage(document.getElementById("image1"), -400.0, -287.5);
+      ctx.restore();
+
+      // background/
+      // This unsupported artwork has been rasterized
+      ctx.drawImage(document.getElementById("image2"), 391.6, 48.1);
+
+      // background/
+      // This unsupported artwork has been rasterized
+      ctx.drawImage(document.getElementById("image3"), 187.6, 473.2);
+
+      // background/
+      // This unsupported artwork has been rasterized
+      ctx.drawImage(document.getElementById("image4"), 324.6, 473.2);
+
+      // background/
+      // This unsupported artwork has been rasterized
+      ctx.drawImage(document.getElementById("image5"), 453.6, 473.2);
+
+      // background/
+      // This unsupported artwork has been rasterized
+      ctx.drawImage(document.getElementById("image6"), 575.6, 473.2);
+
+      // background/
+      // This unsupported artwork has been rasterized
+      ctx.drawImage(document.getElementById("image7"), 708.6, 473.2);
+      ctx.restore();
+    }
+
+    function moon(ctx) {
+
+      // moon/
+      ctx.save();
+      // This unsupported artwork has been rasterized
+      ctx.drawImage(document.getElementById("image8"), 55.0, -19.0);
+      ctx.restore();
+    }
+  </script>
+ </head>
+ <body onload="init()">
+   <canvas id="canvas" width="801" height="575"></canvas>
+   <img alt=" " id="image1" style="display: none" src="file:///D:/Work/Canvas/PCN/ps2.png" />
+   <img alt="" id="image2" style="display: none" src="image8.png" />
+   <img alt="" id="image3" style="display: none" src="image9.png" />
+   <img alt="" id="image4" style="display: none" src="image10.png" />
+   <img alt="" id="image5" style="display: none" src="image11.png" />
+   <img alt="" id="image6" style="display: none" src="image12.png" />
+   <img alt="" id="image7" style="display: none" src="image13.png" />
+   <img alt="" id="image8" style="display: none" src="image14.png" />
+ </body>
+</html>

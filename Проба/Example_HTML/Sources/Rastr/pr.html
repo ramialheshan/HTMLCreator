@@ -1,0 +1,134 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!-- Created with Ai->Canvas Export Plug-In Version 1.0 (PC)  -->
+<!-- By Mike Swanson (http://blogs.msdn.com/mswanson/)        -->
+<!-- and MIX Online  (http://visitmix.com/)                   -->
+
+<html lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>pr</title>
+<!--[if IE]><script type="text/javascript" src="excanvas2.js"></script><![endif]-->
+  <script>
+      var BackImage = new Image();
+      BackImage.src = 'ps2.png';
+      var Image1 = new Image();
+      Image1.src = 'image1.gif';
+      var Image2 = new Image();
+      Image2.src = 'image2.gif';
+      var Image3 = new Image();
+      Image3.src = 'image3.gif';
+      var Image4 = new Image();
+      Image4.src = 'image4.gif';
+      var Image5 = new Image();
+      Image5.src = 'image5.gif';
+      var x = [22.1, 148.1, 281.6, 408.1, 536.1, 667.1, 355.1];
+      var y = [435.3, 435.3, 435.3, 435.3, 435.3, 435.3, 26.3];
+      var s1 = "Подземный резервуар дизельного топлива";
+      var s2 = "Подземный резервуар бензина";
+
+      var s3 = "Сливной колодец!";
+
+      var aio = [s1 + "№1!", s1 + "№2!", s1 + "№3!", s2 + "№1!", s2 + "№2!", s2 + "№3!", s3];
+      var aid = ["давление паров", "температуры", "уровня жидкости"];
+      var ais = ["Отказ датчика", "Востановление датчика", "Привышение порога I<br>датчика", "Привышение порога II<br>датчика"];
+      var io = parseInt(gup("IO"), 10);
+      var id = parseInt(gup("ID"), 10);
+      var is = parseInt(gup("IS"), 10);
+      function gup(name) {
+          name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+          var regexS = "[\\?&]" + name + "=([^&#]*)";
+          var regex = new RegExp(regexS);
+          var results = regex.exec(window.location.href);
+
+          if (results == null)
+              return "";
+          else
+              return results[1];
+      }
+
+
+
+      function GetID() {
+
+          if ((isNaN(io) == true) || (isNaN(id) == true) || (isNaN(is) == true)) return "";
+          // alert("11111");
+          var sIO = aio[io - 1];
+          var sID = aid[id - 1];
+          var sIS = ais[is - 1];
+
+
+          document.writeln(sIO + "<br><br>" + sIS + "<br>" + sID + ".<br>");
+
+          return "";
+      } 
+    function init() {
+
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+
+      background(ctx);
+      var i;
+
+      for (i = 0; i < 7; i++)
+          if ((i+1) == io) pr(ctx, is, x[i], y[i]);
+          else
+          pr(ctx, 0, x[i], y[i]);
+  }
+  function sensor(ctx, i) {
+  
+  }
+  function selectimage(img) {
+      switch (img) {
+          case 0: return Image1;
+          case 1: return Image2;
+          case 2: return Image3;
+          case 3: return Image4;
+          case 4: return Image5;
+      }
+  }
+
+    function background(ctx) {
+
+      // background/ 
+      ctx.save();
+      ctx.save();
+      ctx.transform(1.000, 0.000, -0.000, 1.000, 400.0, 287.5);
+      ctx.drawImage(BackImage, -400.0, -287.5);
+      ctx.restore();
+      ctx.restore();
+    }
+
+    function pr(ctx, img,x,y) {
+
+        // pr1/
+        ctx.save();
+        // This unsupported artwork has been rasterized
+        ctx.drawImage(selectimage(img), x, y);
+        ctx.restore();
+    }
+  
+  </script>
+     <style type="text/css">
+       
+         td { border: 1px solid gray; }
+         H1 { color: blue }
+     </style>
+ </head>
+ <body onload="init()" bgcolor = "lavender">
+     <table  style="height:99%;" border=1 align="center" width=100% cellspacing="0" >
+         <tr valign=middle bgcolor="white">
+             <td align=center >
+             <canvas id="canvas" width="801" height="575"></canvas>
+             </td>
+             <td width=40% align=center bgcolor="antiquewhite">
+               <center><h1>ВНИМАНИЕ!</h1></center>
+	<center><h1><script> GetID();  </script></h1></center>
+             </td>
+         </tr>
+     </table>
+   
+
+ </body>
+</html>

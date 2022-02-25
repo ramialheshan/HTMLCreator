@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://www.phpguru.org/downloads/image_rotate/rotate.html -->
+<HTML><HEAD><TITLE>Image rotate</TITLE>
+<META content="text/html; charset=windows-1251" http-equiv=Content-Type>
+<SCRIPT language=javascript type=text/javascript>
+    <!--
+        mousedown = false; // An important global variable
+
+        /**
+        * The zoom out function
+        *
+        * @param object obj The image object
+        */
+        function ZoomOut(obj)
+        {
+            if (document.all) {
+                // In case the zoom property is not set
+                if (obj.style.zoom == '') {
+                    obj.style.zoom = 1;
+                }
+
+                if (parseFloat(obj.style.zoom) <= 0.1) {
+                    return;
+                }
+
+                obj.style.zoom = obj.style.zoom - 0.1;
+
+                if (mousedown) {
+                    setTimeout("ZoomOut(document.getElementById('" + obj.id + "'))", 50);
+                }
+            } else {
+                var canvas  = document.getElementById('ff_canvas');
+                var context = canvas.getContext('2d');
+
+                canvas.style.width = ((parseInt(canvas.style.width) ? parseInt(canvas.style.width) : 73) - 10) + 'px';
+                canvas.style.height = ((parseInt(canvas.style.height) ? parseInt(canvas.style.height) : 50) - 10) + 'px';
+                
+                if (mousedown) {
+                    setTimeout("ZoomOut(document.getElementById('" + obj.id + "'))", 50);
+                }
+            }
+        }
+
+        /**
+        * The zoom in function
+        *
+        * @param object obj The image object
+        */
+        function ZoomIn(obj)
+        {
+            if (document.all) {
+                // In case the zoom property is not set
+                if (obj.style.zoom == '') {
+                    obj.style.zoom = 1;
+                }
+                
+                // Lower limit is 0.1
+                if (parseFloat(obj.style.zoom) <= 0.1) {
+                    obj.style.zoom = 0.1;
+                }
+
+                obj.style.zoom = Number(obj.style.zoom) + 0.1;
+                
+                if (mousedown) {
+                    setTimeout("ZoomIn(document.getElementById('" + obj.id + "'))", 50);
+                }
+            } else {
+                var canvas  = document.getElementById('ff_canvas');
+                var context = canvas.getContext('2d');
+
+                canvas.style.width = ((parseInt(canvas.style.width) ? parseInt(canvas.style.width) : 73)+ 10) + 'px';
+                canvas.style.height = ((parseInt(canvas.style.height) ? parseInt(canvas.style.height) : 73)+ 10) + 'px';
+                
+                if (mousedown) {
+                    setTimeout("ZoomIn(document.getElementById('" + obj.id + "'))", 50);
+                }
+            }
+        }
+
+        /**
+        * The Rotate function which rotates the image
+        *
+        * @param object img      The image object
+        * @param int    factor   Should be a decimal between -1 and 1
+        */
+        function Rotate (img, factor)
+        {
+            /**
+            * Get the rotation factor if any
+            */
+            current = (img.rotation ? Number(img.rotation) : 0) + factor;
+
+            if (factor >= 0) {
+                var rotation = Math.PI * current / 180;
+            } else {
+                var rotation = Math.PI * (360 + current) / 180;
+            }
+
+            var costheta = Math.cos(current);
+            var sintheta = Math.sin(current);
+
+            // Interweb Explorer
+            if (document.all && !window.opera) {
+                img.style.filter = "progid:DXImageTransform.Microsoft.Matrix(M11=" + costheta + ",M12=" + (-sintheta) + ",M21=" + sintheta + ",M22=" + costheta + ",SizingMethod='auto expand')";
+            } else {
+                alert('Sorry, this only works in Interweb Explorer atm');
+            }
+            
+            img.rotation = current;
+
+            if (mousedown) {
+                setTimeout("Rotate(document.getElementById('" + img.id + "'), " + factor + ")", 50);
+            }
+        }
+
+        /**
+        * 
+        */
+        function Reset(img)
+        {
+            img.style.zoom = 1;
+            img.rotation = -0.01;
+            Rotate(img, 0.01);
+        }
+        
+        function CanvasOnload()
+        {
+            // IE
+            if (document.all) {
+                return;
+            }
+
+            var canvas  = document.getElementById('ff_canvas');
+            var context = canvas.getContext('2d');
+            var img     = document.getElementById('zce');
+            
+            context.drawImage(img, 0, 0, 73, 50);
+        }
+        
+        /**
+        * Shows the status of the rotation
+        */
+        function ShowStatus()
+        {
+            var img  = document.getElementById('zce');
+            var zoom = Number(img.style.zoom);
+
+            alert('Zoom factor: ' + (zoom ? zoom : 1) + '\nRotation factor: ' + (img.rotation ? img.rotation : '0') );
+        }
+    // -->
+    </SCRIPT>
+
+<STYLE type=text/css>canvas {
+	
+}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 8.00.6001.19019"></HEAD>
+<BODY onload=CanvasOnload()>
+<H1>Image rotate</H1>
+<P>Simply use the rotate left/right links to rotate the image left and right. 
+</P>
+<DIV style="FLOAT: left"><SPAN style="WIDTH: 65px"></SPAN><SPAN 
+style="TEXT-ALIGN: center; WIDTH: 65px"><A style="TEXT-DECORATION: none" 
+onmouseup="mousedown = false" onMouseOut="mousedown = false" 
+onmousedown="mousedown = true; ZoomOut(document.getElementById('zce'))" 
+href="http://www.phpguru.org/downloads/image_rotate/rotate.html#"><IMG border=0 
+alt="Zoom out" src="Image%20rotate_files/minus.png"> </A>Zoom out </SPAN><SPAN 
+style="TEXT-ALIGN: center; WIDTH: 65px"><A style="TEXT-DECORATION: none" 
+onmouseup="mousedown = false" onMouseOut="mousedown = false" 
+onmousedown="mousedown = true; ZoomIn(document.getElementById('zce'))" 
+href="http://www.phpguru.org/downloads/image_rotate/rotate.html#"><IMG border=0 
+alt="Zoom in" src="Image%20rotate_files/plus.png"> </A>Zoom in </SPAN><BR><SPAN 
+style="TEXT-ALIGN: center; WIDTH: 65px"><A style="TEXT-DECORATION: none" 
+href="javascript: location.href = 'rotate.html'"><IMG border=0 
+alt="Reset the image" src="Image%20rotate_files/reset.png"> </A>Reset 
+</SPAN><SPAN style="TEXT-ALIGN: center; WIDTH: 65px"><A 
+style="TEXT-DECORATION: none" onMouseUp="mousedown = false" 
+onmouseout="mousedown = false" 
+onmousedown="mousedown = true; Rotate(document.getElementById('zce'), -0.05); return false" 
+href="http://www.phpguru.org/downloads/image_rotate/rotate.html#"><IMG border=0 
+alt="Rotate left" src="Image%20rotate_files/rotate_left.png"> </A>Left 
+</SPAN><SPAN style="TEXT-ALIGN: center; WIDTH: 65px"><A 
+style="TEXT-DECORATION: none" onMouseUp="mousedown = false" 
+onmouseout="mousedown = false" 
+onmousedown="mousedown = true; Rotate(document.getElementById('zce'), 0.05); return false" 
+href=""><IMG border=0 
+alt="Rotate right" src="Image%20rotate_files/rotate_right.png"> </A>Right 
+</SPAN></DIV><CANVAS id=ff_canvas height="50" width="73"><IMG 
+style="POSITION: absolute; MARGIN-LEFT: 50px; TOP: 110px; CURSOR: hand; LEFT: 250px" 
+id=zce alt=Zend src="Image%20rotate_files/ZCE1000-small.gif" > 
+</CANVAS><BR clear=all><BR>
+<P>Stuff you could add: </P>
+<OL>
+  <LI style="TEXT-DECORATION: line-through">Animate the rotation with 
+  setTimeout() calling the Rotate function for as long as the mousebutton is 
+  depressed 
+  <LI>FireFox support using the "canvas" object (apparently)<BR><B>Update:</B> 
+  Now that I have much more experience with canvas, I can say his could be done 
+  quite easily with canvas. Have a look at <A 
+  href="http://www.rgraph.net/examples/text.html">this</A>. It uses the 
+  RGaph.Text() function from the <A href="http://www.rgraph.net/">RGraph</A> 
+  library, of which one of the arguments is the angle of the text. So combined 
+  with setTimeout and gradually incrementing this, you can get rotating text. 
+  <LI>Persistency using AJAX to send the current rotation to a PHP script which 
+  stores (eg database/file) it. You could use the onmouseup event to signal the 
+  server when the rotation is done instead of sending every single update to the 
+  server (would generate way too much traffic). Also, as a poor-mans persistency 
+  you could use cookies to store the rotation state. 
+  <LI>As well as the normal left/right rotation controls you could add finer 
+  grained controls by giving a lower factor as the second argument to the 
+  Rotate() function. 
+  <LI>Would be neat to be able to drag the image around... could perhaps combine 
+  the rotation with <A 
+  href="http://www.phpguru.org/static/layerfun.html">this</A>. 
+  <LI>Also it would be "very cool" to replace the image with higher res images 
+  at certain zoom levels to make it look nicer. Would (should) simply be a 
+  matter of having a higher res image which gets set as the SRC at certain zoom 
+  levels. Like Google maps does when you zoom in. </LI></OL></BODY></HTML>

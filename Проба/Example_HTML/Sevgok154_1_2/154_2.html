@@ -1,0 +1,333 @@
+<html>
+<head>
+<title>Proba</title>
+<style type="text/css">
+    H2 { color: blue }
+
+.pos0  {  width:100%;  height:100%;  position:relative; left:0%;border-width:0px; border-color:black; border-style:solid;}
+.right {  width:23%;   height:100%;  position:absolute; left:77%;border-width:1px; border-color:black; border-style:solid;text-align:center;background-color:antiquewhite;}
+.left  {  width:77%;   height:100%;  position:absolute; left:0%;border-width:1px; border-color:black; border-style:solid; background-color:white;}
+#image {  width:950px; height:543px; position:absolute; left:50%; top:50%; border-width:1px; border-color:blue; border-style:none; margin-left: -475px; margin-top: -272px; background-image: url(plan154_2.png);background-repeat:no-repeat;}
+
+
+.pos1 { width:61;height:17px; position:absolute; left:108;top:70; }
+.pos2 { width:61;height:64px; position:absolute; left:173;top:70; }
+.pos3 { width:61;height:65px; position:absolute; left:689;top:117; }
+.pos4 { width:61;height:61px; position:absolute; left:119;top:200; }
+.pos5 { width:62px;height:61px; position:absolute; left:250;top:199; }
+.pos6 { width:61;height:61px; position:absolute; left:424;top:199; }
+.pos7 { width:61;height:61px; position:absolute; left:554;top:199; }
+.pos8 { width:61;height:61px; position:absolute; left:119;top:330; }
+.pos9 { width:61;height:12px; position:absolute; left:249;top:330; }
+.pos10 { width:61;height:61px; position:absolute; left:424;top:330; }
+.pos11 { width:61;height:61px; position:absolute; left:554;top:331; }
+.pos12 { width:61;height:61px; position:absolute; left:61;top:220; }
+.pos13 { width:61;height:51px; position:absolute; left:190px;top:221; }
+.pos14 { width:61;height:61px; position:absolute; left:366;top:221; }
+.pos15 { width:61;height:61px; position:absolute; left:496;top:221; }
+.pos16 { width:61;height:61px; position:absolute; left:61;top:310; }
+.pos17 { width:61;height:61px; position:absolute; left:192;top:310; }
+.pos18 { width:43px;height:45px; position:absolute; left:366;top:309; }
+.pos19 { width:61;height:61px; position:absolute; left:496;top:310; }
+.pos20 { width:61;height:61px; position:absolute; left:79;top:220; }
+.pos21 { width:61;height:61px; position:absolute; left:209;top:220; }
+.pos22 { width:61;height:61px;position:absolute; left:383;top:221; }
+.pos23 { width:61;height:61px; position:absolute; left:513;
+top:220; }
+
+.pos24 { width:61;height:61px; position:absolute; left:78;
+top:310; }
+.pos25 { width:61;height:61px; position:absolute; left:209;top:310; }
+.pos26 { width:61;height:61px; position:absolute; left:383;top:310; }
+.pos27 { width:61;height:61px; position:absolute; left:514;
+top:309; }
+.pos28 { width:61;height:61px; position:absolute; left:79;top:220; }
+.pos29 { width:61;height:61px; position:absolute; left:209;top:220; }
+.pos30 { width:61;height:40px; position:absolute; left:384;
+top:221; }
+.pos31 { width:61;height:61px; position:absolute; left:514;top:220; }
+
+.pos32 { width:61;height:61px; position:absolute; left:78;
+top:310; }
+.pos33 { width:61;height:61px; position:absolute; left:209;top:309; }
+.pos34 { width:61;height:61px; position:absolute; left:383;top:310; }
+.pos35 { width:61;height:61px; position:absolute; left:514;
+top:309; }
+.pos36 { width:61;height:61px; position:absolute; left:713;top:429; }
+.pos37 { width:61;height:61px; position:absolute; left:655;
+top:409; }
+.pos38 { width:61;height:61px; position:absolute; left:672;
+top:409; }
+.pos39 { width:61;height:61px; position:absolute; left:673;top:409; }
+.pos40 { width:61;height:61px; position:absolute; left:812;
+top:294; }
+.pos41 { width:61;height:61px; position:absolute; left:757;top:372; }
+
+.pos50 { width:90;height:90px; position:absolute; left:684;top:291; }
+.pos51 {  width:90;height:90px; position:absolute; left:684;top:291; }
+.pos52 {  width:90;height:90px; position:absolute; left:684;top:291; }
+.pos53 {  width:90;height:90px; position:absolute; left:684;top:291;}
+.pos54 {  width:90;height:90px; position:absolute; left:684;top:291; }
+.pos55 {  width:90;height:90px; position:absolute; left:684;top:291; }
+.pos56 {  width:90;height:90px; position:absolute; left:684;top:291; }
+.pos57 {  width:90;height:90px; position:absolute; left:684;top:291; }
+.pos58 {  width:90;height:90px; position:absolute; left:684;top:291; }
+
+</style>
+<script language="javascript">
+
+function getImgSize(imgSrc) {
+    var newImg = new Image();
+    newImg.src = imgSrc;
+    var height = newImg.height;
+    var width = newImg.width;
+    document.getElementById("image").style.width = width;
+    document.getElementById("image").style.height = height;
+    document.getElementById("image").style.left = '50%';
+    document.getElementById("image").style.top = '50%';
+    document.getElementById("image").style.marginLeft = -width / 2;
+    document.getElementById("image").style.marginTop = -height / 2;
+   // alert('The image size is ' + width + '*' + height);
+}
+
+   var a=
+["0",
+ "Рабочая зона насосной станции",         //1
+ "Стойка №1 перекачки из ж/д цистерн",    //2
+ "Резервуар с дизельным топливом",        //3
+ "Подземный резервуар керосина",          //4
+ "ЧС<br><br>АБК",                         //5
+ "ЧС<br><br>Внешняя часть здания",       //6
+ ""  ];                                  //7
+   
+   var aio=
+  [a[1],  //1
+   a[1],  //2
+   a[2],  //3 
+   a[3],  //4
+   a[3],  //5
+   a[3],  //6
+   a[3],  //7
+   a[3],  //8
+   a[3],  //9
+   a[3],  //10
+   a[3],  //11
+   a[4],  //12
+   a[3],  //13
+   a[3],  //14
+   a[3],  //15 
+   a[3],  //16
+   a[3],  //17
+   a[3],  //18
+   a[3],  //19
+   a[3],  //20
+   a[3],  //21
+   a[3],  //22
+   a[3],  //23
+a[3],  //24
+a[3],  //25
+a[3],  //26
+a[3],  //27
+a[3],  //28
+a[3],  //29
+a[3],  //30
+a[3],  //31
+a[3],  //32
+a[3],  //33
+a[3],  //34
+a[3],  //35
+a[4],  //36
+a[4],  //37
+a[4],  //38
+a[4],  //39
+a[5],  //40
+a[6],  //41
+a[7],  //41-----
+a[7],  //42-----
+a[7],  //43-----
+a[7],  //44-----
+a[7],  //45-----
+a[7],  //46-----
+a[7],  //47-----
+a[7],  //48-----
+a[7],  //49-----
+a[7],  //50-
+a[7],  //51-
+a[7],  //52-
+a[7],  //53-
+a[7],  //54-
+a[7],  //55-
+a[7],  //56-
+a[7],  //57-
+a[7],  //58-
+a[7],  //59-
+a[7],  //60-
+   ];
+   var par="концентрации паров";
+
+   var aid=["датчика газоанализатора",  //1
+            "датчика уровня",           //2
+            "датчика давления",         //3 
+            "датчик температуры ",      //4
+            "ручного извещателя",       //5
+            "аккумулятора",             //6
+            "сети 220в",                //7
+            "шкафа МКУ",                //8
+            "клеймной коробки АКБ МКУ", //9
+            "шкафа питания  АРМ",       //10
+            "шкафа ПМУ",                //11
+            "шкафа питания БПС"        //12  
+            ,"шкафа СЗУ-2"             //13   
+            ,"шкафа СЗУ-3"];           //14
+   var ais=["Превышение порога I <br>","Превышение порога II <br>","Отказ","Востановление","Cработка","Вскрытие","Разряд","Закрытие"];
+   var io=parseInt(gup("IO"),10);
+   var id=parseInt(gup("ID"),10);
+   var is=parseInt(gup("IS"),10);
+       function gup( name )
+       {
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)";
+        var regex = new RegExp( regexS );
+        var results = regex.exec( window.location.href );
+		
+        if( results == null )
+            return "";
+        else
+            return results[1];
+        } 
+   
+  
+        
+     function GetID()
+     {
+ 
+     if ( (isNaN(io)== true) || (isNaN(id)==true) || (isNaN(is)==true)) return "";
+ //alert("11111");
+    switch(io )
+    {  
+       case 1:
+       case 2: 
+       case 3:
+       case 4:
+       case 5:
+       case 6:
+       case 7:
+       case 8:
+       case 9:
+       case 10:
+       case 11:
+       case 36: id=1; break; //Газоанализатор
+
+       case 28:
+       case 29: 
+       case 30: 
+       case 31: 
+       case 32: 
+       case 33: 
+       case 34: 
+       case 35:  
+       case 39: id=2; break; //Уровень
+       
+       case 20:
+       case 21: 
+       case 22: 
+       case 23: 
+       case 24: 
+       case 25: 
+       case 26: 
+       case 27:  
+       case 38: id=4; break; //Температура
+
+       case 12:
+       case 13: 
+       case 14: 
+       case 15: 
+       case 16: 
+       case 17: 
+       case 18: 
+       case 19: 
+       case 37: id=3; break; //Давление
+               
+       case 40: 
+       case 41: {id=5;is=5;} break; //Ручной извещатель
+       
+       case 50: id=6; break; //Аккамулятор
+       case 51: id=7; break; //Сеть 220V
+       case 52: id=8; break; //Вскрытие МКУ
+       case 53: id=9; break; //Вскрытие КК
+       case 54: id=10; break; //Вскрытие шкаф питания АРМ
+       case 55: id=11; break; //Вскрытие шкаф ПМУ
+       case 56: id=12; break; //Вскрытие шкаф БПС
+       case 57: id=13; break; //Вскрытие шкаф СЗУ-2
+       case 58: id=14; break; //Вскрытие шкаф СЗУ-3
+      
+       
+       
+    }
+    
+       var sIO=aio[io-1]; 
+       var sID=aid[id-1];
+       var sIS=ais[is-1];
+      
+       //<h3>Склад№154</h3><h4>(первая площадка)</h4>  
+       
+      document.writeln(' <h2><br>ВНИМАНЕ<br><br>'+sIO+"<br><br>"+sIS+"<br>"+sID+".<br>");
+  
+      return "";
+     } 
+      
+     function sensor()
+     {
+       var i;
+       var temp;
+	   var s;
+	   
+	 if ( (isNaN(io)== true) || (isNaN(id)==true) || (isNaN(is)==true)) return "";
+     
+
+		
+		 i=io;
+		 
+		  temp="d_s.gif";
+		  if((io==40)||(io==41))  temp="r.gif";
+		  if(io==50)  temp="bat.gif";
+		  if(io==51)  temp="electro.gif";
+		  if((io>=52)&&(io<=58))  temp="war.gif";
+		 s="<div class='pos"+ (i) + "'><img  src='" +temp+ "' /></div>";
+		 
+         document.write(s);
+        <!-- alert(s);-->
+   }
+     
+
+</script>
+
+</head>
+<body style="overflow:hidden" onload="javascript:getImgSize('plan154_2.png');" onresize="history.go(0)">
+  <!-- <hr>
+   <hr>-->
+    <div class="pos0">
+              <div class="right" >
+                   <h2><script language="javascript">                    GetID()</script></h2>
+              </div>
+              
+              <div class="left" >
+                     <div  id="image">
+                     <!-- alert(s);-->
+                        <!--<div class="pos50" > -->
+                  
+                              <script language="javascript">                 sensor();</script>
+       <!-- <img src="bat.gif" /></div> -->
+            
+                              </div>
+        
+      
+    </div>
+           
+           
+   
+
+
+    
+</body>
+</html>

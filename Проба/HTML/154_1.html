@@ -1,0 +1,240 @@
+<html>
+<head>
+<title>Proba</title>
+<style type="text/css">
+    H2 { color: blue }
+
+.pos0  {  width:100%;  height:100%;  position:relative; left:0%;border-width:0px; border-color:black; border-style:solid;}
+.right {  width:23%;   height:100%;  position:absolute; left:77%;border-width:1px; border-color:black; border-style:solid;text-align:center;background-color:antiquewhite;}
+.left  {  width:77%;   height:100%;  position:absolute; left:0%;border-width:1px; border-color:black; border-style:solid; background-color:white;}
+#image {  width:950px; height:543px; position:absolute; left:50%; top:50%; border-width:1px; border-color:blue; border-style:none; margin-left: -475px; margin-top: -272px; background-image: url(plan154_1.png);background-repeat:no-repeat;}
+
+
+.pos1 { width:61;height:61px; position:absolute; left:58;
+top:-13; }
+.pos2 { width:61;height:61px; position:absolute; left:58;
+top:57; }
+.pos3 { width:61;height:65px; 
+position:absolute; left:177;
+top:-13; }
+.pos4 { width:61;height:61px; position:absolute; left:178;
+top:57; }
+.pos5 { width:62px;
+height:61px; position:absolute; left:120;
+top:133; }
+.pos6 { width:61;height:61px; position:absolute; left:161;
+top:202; }
+.pos7 { width:61;height:61px; position:absolute; left:162;
+top:297; }
+.pos8 { width:61;height:61px; position:absolute; left:816;
+top:146; }
+.pos9 { width:61;height:12px; 
+position:absolute; left:817;
+top:414; }
+.pos10 { width:61;height:61px; position:absolute; left:753;
+top:281; }
+.pos11 { width:61;height:61px; position:absolute; left:876;
+top:282; }
+.pos12 { width:61;height:61px; position:absolute; left:772;
+top:177; }
+.pos13 { width:61;height:61px; position:absolute; left:789;
+top:177; }
+.pos14 { width:61;height:61px; position:absolute; left:842;
+top:178; }
+.pos15 { width:61;height:61px; position:absolute; left:860;
+top:178; }
+.pos16 { width:61;height:61px; position:absolute; left:772;
+top:385; }
+.pos17 { width:61;height:61px; position:absolute; left:791;
+top:385; }
+.pos18 { width:43px;
+height:45px; 
+position:absolute; left:840;
+top:385; }
+.pos19 { width:61;height:61px; position:absolute; left:857;
+top:385; }
+.pos20 { width:61;height:61px; position:absolute; left:547;
+top:494; }
+.pos21 { width:61;height:61px; position:absolute; left:700;
+top:494; }
+.pos22 { width:61;height:61px; position:absolute; left:6;
+top:335; }
+.pos23 { width:61;height:61px; position:absolute; left:88;
+top:389; }
+
+</style>
+<script language="javascript">
+
+function getImgSize(imgSrc) {
+    var newImg = new Image();
+    newImg.src = imgSrc;
+    var height = newImg.height;
+    var width = newImg.width;
+    document.getElementById("image").style.width = width;
+    document.getElementById("image").style.height = height;
+    document.getElementById("image").style.left = '50%';
+    document.getElementById("image").style.top = '50%';
+    document.getElementById("image").style.marginLeft = -width / 2;
+    document.getElementById("image").style.marginTop = -height / 2;
+   // alert('The image size is ' + width + '*' + height);
+}
+
+   var a=
+["0",
+ "Стойка слива керосина", //1
+ "Стойка слива бензина",  //2
+ "Сливной узел",          //3
+ "Насосная",             //4
+ "Машинный зал",          //5
+ "Рабочая зона резервуарного парка", //6
+ "Резервуар с керосином",       //7
+ "Резервуар с бензином",        //8
+ "Площадка налива автоцистерн",  //9 
+ "ЧС<br><br>Операторская",//10
+ "ЧС<br><br>Внешняя часть здания"  ]; //11  
+   
+   var aio=
+  [a[1],  //1
+   a[1],  //2
+   a[2],  //3 
+   a[2],  //4
+   a[3],  //5
+   a[5],  //6
+   a[5],  //7
+   a[6],  //8
+   a[6],  //9
+   a[6],  //10
+   a[6],  //11
+   a[7],  //12
+   a[7],  //13
+   a[8],  //14
+   a[8],  //15 
+   a[7],  //16
+   a[7],  //17
+   a[8],  //18
+   a[8],  //19
+   a[9],  //20
+   a[9],  //21
+   a[11],  //22
+   a[10],  //23
+   ];
+   var par="концентрации паров";
+   var aid=["датчика газоанализатора","датчика уровня","датчика давления","ручного извещается"];
+   var ais=["Превышение порога I <br>","Превышение порога II <br>","Отказ","Востановление","Cработка"];
+   var io=parseInt(gup("IO"),10);
+   var id=parseInt(gup("ID"),10);
+   var is=parseInt(gup("IS"),10);
+       function gup( name )
+       {
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)";
+        var regex = new RegExp( regexS );
+        var results = regex.exec( window.location.href );
+		
+        if( results == null )
+            return "";
+        else
+            return results[1];
+        } 
+   
+  
+        
+     function GetID()
+     {
+ 
+     if ( (isNaN(io)== true) || (isNaN(id)==true) || (isNaN(is)==true)) return "";
+ //alert("11111");
+    switch(io )
+    {  
+       case 1:
+       case 2: 
+       case 3:
+       case 4:
+       case 5:
+       case 6:
+       case 7:
+       case 8:
+       case 9:
+       case 10:
+       case 11:
+       case 20:
+       case 21: id=1; break; //Газоанализатор
+
+       case 12:
+       case 14: 
+       case 16: 
+       case 18: id=2; break; //Уровень
+       
+       case 13:
+       case 15: 
+       case 17: 
+       case 19: id=3; break; //Давление
+               
+       case 22: 
+       case 23: {id=4;is=5;} break; //Ручной извещатель
+       
+    }
+    
+       var sIO=aio[io-1]; 
+       var sID=aid[id-1];
+       var sIS=ais[is-1];
+      
+       //<h3>Склад№154</h3><h4>(первая площадка)</h4>  
+       
+      document.writeln(' <h2><br>ВНИМАНЕ<br><br>'+sIO+"<br><br>"+sIS+"<br>"+sID+".<br>");
+  
+      return "";
+     } 
+      
+     function sensor()
+     {
+       var i;
+       var temp;
+	   var s;
+	   
+	 if ( (isNaN(io)== true) || (isNaN(id)==true) || (isNaN(is)==true)) return "";
+     
+
+		
+		 i=io;
+		 
+		  temp="d_s.gif";
+		  if((io==22)||(io==23))  temp="r.gif";
+		 s="<div class='pos"+ (i) + "'><img  src='" +temp+ "' /></div>";
+		 
+         document.write(s);
+        <!-- alert(s);-->
+   }
+     
+
+</script>
+
+</head>
+<body style="overflow:hidden" onload="javascript:getImgSize('plan154_1.png');" onresize="history.go(0)">
+  <!-- <hr>
+   <hr>-->
+    <div class="pos0">
+              <div class="right" >
+                   <h2><script language="javascript">                    GetID()</script></h2>
+              </div>
+              
+              <div class="left" >
+                     <div  id="image">
+                        <!-- <div class="pos23" >-->
+                  
+                              <script language="javascript">                 sensor();</script>
+        <!--   <img src="r.gif" />
+                            </div>-->
+            
+                              </div>
+        
+      
+    </div>
+           
+           
+   
+
+
+    
+</body>
+</html>

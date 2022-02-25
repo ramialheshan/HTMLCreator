@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>Proba</title>
+<style type="text/css">
+    H1 { color: blue }
+
+.pos0  {  width:100%;  height:100%;  position:relative; left:0%;border-width:0px; border-color:black; border-style:solid;}
+.right {  width:30%;   height:100%;  position:absolute; left:70%;border-width:1px; border-color:black; border-style:solid;text-align:center;background-color:antiquewhite;}
+.left  {  width:70%;   height:100%;  position:absolute; left:0%;border-width:1px; border-color:black; border-style:solid; background-color:lavender;}
+#image {  width:910px; height:695px; position:absolute; left:50%; top:50%; border-width:1px; border-color:blue; border-style:solid; margin-left: -455px; margin-top: -348px; background-image: url(plan151.png);background-repeat:no-repeat;}
+
+
+.pos1 { width:95;height:98; position:absolute; left:143;top:536; }
+.pos2 {width:95;height:98; position:absolute; left:231; top:389;   }
+.pos3 { width:95;height:98; position:absolute; left:353; top:390;  }
+.pos4 { width:95;height:98; position:absolute; left:467; top:389;  }
+.pos5 { width:95;height:98; position:absolute; left:436; top:87;   }
+.pos6 { width:95;height:98; position:absolute; left:488; top:87;   }
+.pos7 { width:95;height:98; position:absolute; left:786; top:248;   }
+.pos8 { width:95;height:98; position:absolute; left:676; top:144;   }
+.pos9 { width:95;height:98; position:absolute; left:676; top:200;   }
+.pos10 { width:95;height:98; position:absolute; left:676; top:255;   }
+.pos11 { width:95;height:98; position:absolute; left:676; top:308; }
+.pos12 { width:95;height:98; position:absolute; left:676; top:360;   }
+.pos13 { width:95;height:98; position:absolute; left:675; top:415;   }
+</style>
+<script language="javascript">
+  
+function getImgSize(imgSrc) {
+    var newImg = new Image();
+    newImg.src = imgSrc;
+    var height = newImg.height;
+    var width = newImg.width;
+    document.getElementById("image").style.width = width;
+    document.getElementById("image").style.height = height;
+    document.getElementById("image").style.left = '50%';
+    document.getElementById("image").style.top = '50%';
+    document.getElementById("image").style.marginLeft = -width / 2;
+    document.getElementById("image").style.marginTop = -height / 2;
+   // alert('The image size is ' + width + '*' + height);
+}
+
+   var s1="Очистные сооружения"; 
+   var s2="Топливо-раздаточная калонка";
+   var s3="Операторская";
+   var s4="Сливной колодец";
+   var s5="Подземный резервуар ДТ";
+   var s6="Подземный резервуар бензина";
+   
+   var aio=[s1,s2+"№1!",s2+"№2!",s2+"№3!",s3,s3,s4,s5+"№1!",s5+"№2!",s5+"№3!",s6+"№4!",s6+"№5!",s6+"№6!"];
+   var par="концентрации паров";
+   var aid=["уровня концентрации паров","давления","температуры","уровня жидкости","ручной извещатель"];
+   var ais=["Отказ датчика","Востановление датчика","Привышение порога I<br>датчика","Привышение порога II<br>датчика","Cработка ручного извещателя"];
+   var io=parseInt(gup("IO"),10);
+   var id=parseInt(gup("ID"),10);
+   var is=parseInt(gup("IS"),10);
+       function gup( name )
+       {
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)";
+        var regex = new RegExp( regexS );
+        var results = regex.exec( window.location.href );
+		
+        if( results == null )
+            return "";
+        else
+            return results[1];
+        } 
+   
+  
+        
+     function GetID()
+     {
+ 
+     if ( (isNaN(io)== true) || (isNaN(id)==true) || (isNaN(is)==true)) return "";
+ //alert("11111");
+       var sIO=aio[io-1]; 
+       var sID=aid[id-1];
+       var sIS=ais[is-1];
+      
+       if ((io==5) ||(io==6)) 
+       {
+          sID="";
+         // sID="сработка ручного извещателя";
+         document.writeln('<br>'+sIO+"<br><br>"+sIS+sID+".<br>");
+         return "";
+       }      
+       
+      document.writeln('<br>'+sIO+"<br><br>"+sIS+"<br>"+sID+".<br>");
+  
+      return "";
+     } 
+      
+     function sensor()
+     {
+       var i;
+       var temp;
+	   var s;
+	   
+	 if ( (isNaN(io)== true) || (isNaN(id)==true) || (isNaN(is)==true)) return "";
+     
+//		 if (io<2)
+//		 {
+//			 i= io+id-1;
+//			 temp="d1.gif";
+//		 }
+//		  else
+//		  {
+//		   i=io+1; 
+//		    temp="d1.gif";
+//		   }
+		
+		 i=io;
+		  temp="d1.gif";
+		 s="<div class='pos"+ (i) + "'><img  src='" +temp+ "' /></div>";
+		 
+         document.write(s);
+        <!-- alert(s);-->
+   }
+     
+
+</script>
+
+</head>
+<body style="overflow:hidden" onload="javascript:getImgSize('plan151.png');" onresize="history.go(0)">
+  <!-- <hr>
+   <hr>-->
+    <div class="pos0">
+        <div class="right" >
+            <h1><script language="javascript">                    GetID()</script></h1>
+        </div>
+         <div class="left" >
+            <div  id="image">
+               <!--<div class="pos7" >
+                        
+                </div>-->
+             <script language="javascript">                 sensor();</script>
+            
+            </div>
+        </div>
+        
+      
+    </div>
+           
+           
+   
+
+
+    
+</body>
+</html>

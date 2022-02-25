@@ -1,0 +1,138 @@
+<HTML><HEAD>
+<SCRIPT>
+ var arrayData = [[33,1,'ВолныДокритическиеResize.gif',645,55,0,'Имитационный стенд<br>Уровень достиг докритического значения','SandyBrown'],[33,2,'ВолныКритическиеResize.gif',645,55,0,'Имитационный стенд<br>Уровень достиг докритического значения<br>','Red'],[33,3,'Серый.gif',675,58,0,'Имитационный стенд<br>Отказ датчика уровня','Red'],[33,4,'ДатчикОтказResize.gif',675,58,0,'Имитационный стенд<br>Восстановлен датчик уровня','Blue'],[34,1,'ВолныДокритическиеResize.gif',645,55,0,'Имитационный стенд<br>Температура достигла докритического значения<br>','SandyBrown'],[34,2,'ВолныКритическиеResize.gif',645,55,0,'Имитационный стенд<br>Температура достигла критического значения<br><br>','Red'],[34,3,'Серый.gif',675,58,0,'Имитационный стенд<br>Отказ датчика температуры','Red'],[34,4,'ДатчикОтказResize.gif',675,58,0,'Имитационный стенд<br>Восстановление датчика температуры','Blue'],[35,1,'ВолныДокритическиеResize.gif',258,111,0,'Имитационный стенд<br>Концентрация аммиака достигла докритического значения','SandyBrown'],[35,2,'ВолныКритическиеResize.gif',258,111,0,'Имитационный стенд<br>Концентрация аммиака достигла критического значения<br>','Red'],[35,3,'Серый.gif',287,115,0,'Имитационный стенд<br>Отказ датчика концентрации аммиака ','Red'],[35,4,'ДатчикОтказResize.gif',287,115,0,'Имитационный стенд<br>Восстановлен датчик концентрации аммиака <br>','Blue'],[36,1,'ВолныДокритическиеResize.gif',368,114,0,'Имитационный стенд<br>Концентрация оксида углеводорода достигла докритического значения','SandyBrown'],[36,2,'ВолныКритическиеResize.gif',368,114,0,'Имитационный стенд<br>Концентрация оксида углеводорода достигла критического значения','Red'],[36,3,'Серый.gif',397,118,0,'Имитационный стенд<br>Отказ датчика концентрации оксида углерода<br>','Red'],[36,4,'ДатчикОтказResize.gif',397,118,0,'Имитационный стенд<br>Восстановлен датчик концентрации оксида углерода<br>','Blue'],[37,1,'ВолныДокритическиеResize.gif',478,117,0,'Имитационный стенд<br>Концентрация хлора достигла докритического значения','SandyBrown'],[37,2,'ВолныКритическиеResize.gif',478,117,0,'Имитационный стенд<br>Концентрация хлора достигла критического значения','Red'],[37,3,'Серый.gif',507,118,0,'Имитационный стенд<br>Отказ датчика концентрации хлора','Red'],[37,4,'ДатчикОтказResize.gif',507,118,0,'Имитационный стенд<br>Восстановлен датчик концентрации хлора','Blue'],[32,1,'ВолныДокритическиеResize.gif',165,318,0,'Имитационный стенд<br>Концентрация углеводорода достигла докритического значения','SandyBrown'],[32,2,'ВолныКритическиеResize.gif',165,318,0,'Имитационный стенд<br>Концентрация углеводорода достигла критического значения<br>','Red'],[32,3,'Серый.gif',195,319,0,'Имитационный стенд<br>Отказ датчика концентрации углеводорода','Red'],[32,4,'ДатчикОтказResize.gif',195,319,0,'Имитационный стенд<br>Восстановлен датчик концентрации углеводорода','Red'],[38,1,'ВолныДокритическиеResize.gif',382,255,0,'Имитационный стенд<br>Концентрация нефтепродуктов достигла докритического значения','SandyBrown'],[38,2,'ВолныКритическиеResize.gif',382,255,0,'Имитационный стенд<br>Концентрация нефтепродуктов достигла критического значения<br>','Red'],[38,3,'Серый.gif',412,256,0,'Имитационный стенд<br>Отказ датчика концентрации нефтепродуктов ','Red'],[38,4,'ДатчикОтказResize.gif',412,256,0,'Имитационный стенд<br>Восстановлен датчик концентрации нефтепродуктов','Blue'],[39,1,'ВолныДокритическиеResize.gif',547,255,0,'Имитационный стенд<br>Давление достигло докритического значения','SandyBrown'],[39,2,'ВолныКритическиеResize.gif',547,255,0,'Имитационный стенд<br>Давление достигло критического значения<br>','Red'],[39,3,'Серый.gif',578,261,0,'Имитационный стенд<br>Отказ датчика давления<br>','Red'],[39,4,'ДатчикОтказResize.gif',578,261,0,'Имитационный стенд<br>Восстановлен датчик давления<br>','Blue'],[64,2,'DIO_Критический.gif',676,418,0,'Имитационный стенд<br>Активирована кнопка DIO','Red'],[64,4,'DIO_Восстановлен.gif',677,418,0,'Имитационный стенд<br>Деактивирована кнопка DIO','Blue'],[65,2,'DI1_Критический.gif',761,419,0,'Имитационный стенд<br>Активирована кнопка DI1','Red'],[65,4,'DI1_Восстановлен.gif',761,419,0,'Имитационный стенд<br>Деактивирована кнопка DI1<br>','Blue'],[66,2,'DI2_Критический.gif',679,436,0,'Имитационный стенд<br>Активирована кнопка DI2<br>','Red'],[66,4,'DI2_Восстановлен.gif',679,436,0,'Имитационный стенд<br>Деактивирована кнопка DI2','Blue'],[67,2,'DI3_Критический.gif',759,437,0,'Имитационный стенд<br>Активирована кнопка DI3','Red'],[67,4,'DI3_Восстановлен.gif',759,437,0,'Имитационный стенд<br>Деактивирована кнопка DI3','Blue'],[68,2,'DI4_Критический.gif',681,455,0,'Имитационный стенд<br>Активирована кнопка DI4','Red'],[68,4,'DI4_Восстановлен.gif',681,455,0,'Имитационный стенд<br>Деактивирована кнопка DI4','Blue'],[69,2,'DI5_Критический.gif',757,455,0,'Имитационный стенд<br>Активирована кнопка DI5','Red'],[69,4,'DI5_Восстановлен.gif',757,455,0,'Имитационный стенд<br>Деактивирована кнопка DI5','Blue'],[70,2,'DI6_Критический.gif',676,471,0,'Имитационный стенд<br>Активирована кнопка DI6','Red'],[70,4,'DI6_Восстановлен.gif',676,471,0,'Имитационный стенд<br>Деактивирована кнопка DI6','Blue'],[71,2,'DI7_Критический.gif',762,472,0,'Имитационный стенд<br>Активирована кнопка DI7','Red'],[71,4,'DI7_Восстановлен.gif',762,472,0,'Имитационный стенд<br>Деактивирована кнопка DI7<br>','Blue'],[72,2,'AIO_Критический.gif',667,495,0,'Имитационный стенд<br>Активация регулятора AIO','Red'],[72,4,'AI0_Восстановлен.gif',668,495,0,'Имитационный стенд<br>Деактивация регулятора AIO<br>','Blue'],[73,2,'K1_Активация.gif',678,402,0,'Имитационный стенд<br>Активация K1','Red'],[74,2,'K2_Активация.gif',758,402,0,'Имитационный стенд<br>Активация K2','Red'],[14,3,'ММП_Отказ.gif',50,0,0,'Имитационный стенд<br>Зафиксирован отказ ММП МКУ','Red'],[15,3,'ММП_Отказ.gif',50,0,0,'Имитационный стенд<br>Зафиксирован отказ ММП БОУ','Red'],[1,2,'electro.gif',0,0,0,'Имитационный стенд<br>Зафиксировано отключение питания','Red'],[1,4,'electro.gif',0,0,0,'Имитационный стенд<br>Зафиксировано восстановление питания','Blue'],[0,2,'bat.gif',0,0,0,'Имитационный стенд<br>Аккамулятор разряжен','Red'],[0,4,'bat.gif',0,0,0,'Имитационный стенд<br>Аккамулятор заряжен<br>','Blue'],[98,2,'war.gif',0,0,0,'Имитационный стенд<br>Зафиксирована угроза развития чрезвычайной ситуации','#FF8000'],[99,2,'war.gif',0,0,0,'Имитационный стенд<br>Чрезвычайная ситуации','Red'],[7,2,'Оборудование_Вскрытие.gif',90,0,0,'Имитационный стенд<br>Зафиксировано вскрытие шкафа сбора информации','Red'],[7,4,'Оборудование_Восстановление.gif',83,0,0,'Имитационный стенд<br>Целостность шкафа сбора информации восстановлена','Blue']];
+//Метод: Получить параметры с адресной строки 
+function getValueParametr(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regexS = "[\\?&]" + name + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(window.location.href);
+    if (results == null)
+        return "";
+    else
+        return results[1];
+}
+//Метод: Поворот изображения
+function Rotate(img, factor) {
+    if (img != null) {
+        /**
+        * Get the rotation factor if any
+        */
+        img.rotation = 0;
+        current = (img.rotation ? Number(img.rotation) : 0) + factor;
+        if (factor >= 0) {
+            var rotation = Math.PI * current / 180;
+        } else {
+            var rotation = Math.PI * (360 + current) / 180;
+        }
+        var costheta = Math.cos(current);
+        var sintheta = Math.sin(current);
+        // Interweb Explorer
+        if (document.all && !window.opera) {
+            img.style.filter = "progid:DXImageTransform.Microsoft.Matrix(M11=" + costheta + ",M12=" + (-sintheta) + ",M21=" + sintheta + ",M22=" + costheta + ",SizingMethod='auto expand')";
+        } else {
+            alert('Операция поворота изображения доступна для выполнения в броузере Internet Explorer');
+        }
+        img.rotation = current;
+        return true;
+    }
+    else {
+        alert("Запись датчика отсутствует");
+        return false;
+    }
+}
+//Метод: Поиск датчика в массиве и применение его параметров 
+function GetDataSensor() {
+    var Id = getValueParametr("ID");
+    var S = getValueParametr("S");
+    if (Id != "" & S != "") {
+        for (var i = 0; i < arrayData.length; i++) {
+            if (arrayData[i].length == undefined) {
+                TransformSensor(arrayData[3], arrayData[4], arrayData[2], arrayData[5], arrayData[6], arrayData[7]);
+                return;
+            }
+            else {
+                var count = arrayData[i].length;
+                for (var x = 0; x < count; x++) {
+                    if (Id.toString() == arrayData[i][0].toString()) {
+                        if (S.toString() == arrayData[i][1].toString()) {
+                            TransformSensor(arrayData[i][3], arrayData[i][4], arrayData[i][2], arrayData[i][5], arrayData[i][6], arrayData[i][7]);
+                            return;}}}}}
+        var removeImage = document.getElementById('ImageDiv');
+        if (removeImage != null) {
+            removeImage.innerHTML = "";
+        }
+        
+        var textAlarm = document.getElementById('AlarmText');
+        var alarmCell = document.getElementById('AlarmTextCell');
+        alarmCell.setAttribute("vAlign", "middle");
+        alarmCell.setAttribute("Align", "center");
+        textAlarm.innerHTML = "ТЕКСТ<br>СООБЩЕНИЯ";
+
+        alert("Введенные данные не найдены в массиве датчиков");
+    }
+    else {
+        var removeImage = document.getElementById('ImageDiv');
+        if (removeImage!=null) {
+            removeImage.innerHTML = "";
+            
+            var textAlarm = document.getElementById('AlarmText');
+            var alarmCell = document.getElementById('AlarmTextCell');
+            alarmCell.setAttribute("vAlign", "middle");
+            alarmCell.setAttribute("Align", "center");
+            textAlarm.innerHTML = "ТЕКСТ<br>СООБЩЕНИЯ";
+           
+            alert("Введите параметры для отображения датчика");
+        }
+    }
+}
+//Метод: Поиск датчика в массиве и применение его параметров 
+function TransformSensor(x, y, path, rotat, AlarmText, textColor) {
+    var element = document.getElementById('sensor');
+    var element2 = document.getElementById('ImageDiv');
+    if (element != null) {
+        if (path!=null) {
+            element.setAttribute('src', path.toString());
+        }
+        element.removeAttribute('width');
+        element.removeAttribute('height');
+        element.removeAttribute('rotation');
+
+        var left = (document.all.ImageCell.clientWidth - document.all.Plan.clientWidth) / 2;
+        var top = (document.all.ImageCell.clientHeight - document.all.Plan.clientHeight) / 2;
+
+        var nValueLeft = parseInt(left) + parseInt(x);
+        var nValueTop = parseInt(top) + parseInt(y);
+
+        element2.style.left = nValueLeft;
+        element2.style.top = nValueTop;
+
+        Rotate(document.getElementById('sensor'), rotat);
+
+        element.removeAttribute('width');
+        element.removeAttribute('height');
+        element.removeAttribute('rotation');
+
+        var alarm = document.getElementById('AlarmText');
+        alarm.style.color = textColor;
+
+        var alarmCell = document.getElementById('AlarmTextCell');
+        alarmCell.setAttribute("vAlign", "top");
+        if (AlarmText != "" ) {
+            alarm.innerHTML = "!!!ВНИМАНИЕ!!!<br>" + AlarmText;
+        } else {
+        alarm.innerHTML = " ТЕКСТ СООБЩЕНИЯ ПУСТ";
+        }
+        
+    }
+}</SCRIPT>
+
+<META content="text/html; charset=utf-8" http-equiv="Content-Type"></HEAD>
+<BODY onload=GetDataSensor() onresize=GetDataSensor()>
+<TABLE id=tableMain border=1 cellPadding=10 width="100%" height="100%">
+<TBODY>
+<TR>
+<TD id=ImageCell bgColor=#ffffff height="80%" align=center><IMG id=Plan src="STEND_FON.png" width=800 height=511></TD>
+<TD id=AlarmTextCell vAlign=top width="30%" align=center>
+<H1 style="COLOR: blue" id=AlarmText>!!!ВНИМАНИЕ!!!<BR>Имитационный стенд<BR>Деактивация регулятора AIO<BR></H1></TD></TR></TBODY></TABLE>
+<DIV style="POSITION: absolute; TOP: 721px; LEFT: 678px" id=ImageDiv><IMG style="FILTER: progid:DXImageTransform.Microsoft.Matrix(M11=1,M12=0,M21=0,M22=1,SizingMethod='auto expand')" id=sensor src="file:///D|/Рабочие файлы/Объекты/СТЕНД/Обновления Стенда/HTML/STEND/AI0_Восстановлен.gif"></DIV></BODY></HTML>

@@ -1,0 +1,238 @@
+<html>
+<head>
+    <title>Image rotate</title>
+    
+    <script language="javascript" type="text/javascript">
+    <!--
+        mousedown = false; // An important global variable
+
+        /**
+        * The zoom out function
+        *
+        * @param object obj The image object
+        */
+        function ZoomOut(obj)
+        {
+            if (document.all) {
+                // In case the zoom property is not set
+                if (obj.style.zoom == '') {
+                    obj.style.zoom = 1;
+                }
+
+                if (parseFloat(obj.style.zoom) <= 0.1) {
+                    return;
+                }
+
+                obj.style.zoom = obj.style.zoom - 0.1;
+
+                if (mousedown) {
+                    setTimeout("ZoomOut(document.getElementById('" + obj.id + "'))", 50);
+                }
+            } else {
+                var canvas  = document.getElementById('ff_canvas');
+                var context = canvas.getContext('2d');
+
+                canvas.style.width = ((parseInt(canvas.style.width) ? parseInt(canvas.style.width) : 73) - 10) + 'px';
+                canvas.style.height = ((parseInt(canvas.style.height) ? parseInt(canvas.style.height) : 50) - 10) + 'px';
+                
+                if (mousedown) {
+                    setTimeout("ZoomOut(document.getElementById('" + obj.id + "'))", 50);
+                }
+            }
+        }
+
+        /**
+        * The zoom in function
+        *
+        * @param object obj The image object
+        */
+        function ZoomIn(obj)
+        {
+            if (document.all) {
+                // In case the zoom property is not set
+                if (obj.style.zoom == '') {
+                    obj.style.zoom = 1;
+                }
+                
+                // Lower limit is 0.1
+                if (parseFloat(obj.style.zoom) <= 0.1) {
+                    obj.style.zoom = 0.1;
+                }
+
+                obj.style.zoom = Number(obj.style.zoom) + 0.1;
+                
+                if (mousedown) {
+                    setTimeout("ZoomIn(document.getElementById('" + obj.id + "'))", 50);
+                }
+            } else {
+                var canvas  = document.getElementById('ff_canvas');
+                var context = canvas.getContext('2d');
+
+                canvas.style.width = ((parseInt(canvas.style.width) ? parseInt(canvas.style.width) : 73)+ 10) + 'px';
+                canvas.style.height = ((parseInt(canvas.style.height) ? parseInt(canvas.style.height) : 73)+ 10) + 'px';
+                
+                if (mousedown) {
+                    setTimeout("ZoomIn(document.getElementById('" + obj.id + "'))", 50);
+                }
+            }
+        }
+
+        /**
+        * The Rotate function which rotates the image
+        *
+        * @param object img      The image object
+        * @param int    factor   Should be a decimal between -1 and 1
+        */
+        function Rotate (img, factor)
+        {
+            /**
+            * Get the rotation factor if any
+            */
+            current = (img.rotation ? Number(img.rotation) : 0) + factor;
+
+            if (factor >= 0) {
+                var rotation = Math.PI * current / 180;
+            } else {
+                var rotation = Math.PI * (360 + current) / 180;
+            }
+
+            var costheta = Math.cos(current);
+            var sintheta = Math.sin(current);
+
+            // Interweb Explorer
+            if (document.all && !window.opera) {
+                img.style.filter = "progid:DXImageTransform.Microsoft.Matrix(M11=" + costheta + ",M12=" + (-sintheta) + ",M21=" + sintheta + ",M22=" + costheta + ",SizingMethod='auto expand')";
+            } else {
+                alert('Sorry, this only works in Interweb Explorer atm');
+            }
+            
+            img.rotation = current;
+
+            if (mousedown) {
+                setTimeout("Rotate(document.getElementById('" + img.id + "'), " + factor + ")", 50);
+            }
+        }
+
+        /**
+        * 
+        */
+        function Reset(img)
+        {
+            img.style.zoom = 1;
+            img.rotation = -0.01;
+            Rotate(img, 0.01);
+        }
+        
+        function CanvasOnload()
+        {
+            // IE
+            if (document.all) {
+                return;
+            }
+
+            var canvas  = document.getElementById('ff_canvas');
+            var context = canvas.getContext('2d');
+            var img     = document.getElementById('zce');
+            
+            context.drawImage(img, 0, 0, 73, 50);
+        }
+        
+        /**
+        * Shows the status of the rotation
+        */
+        function ShowStatus()
+        {
+            var img  = document.getElementById('zce');
+            var zoom = Number(img.style.zoom);
+
+            alert('Zoom factor: ' + (zoom ? zoom : 1) + '\nRotation factor: ' + (img.rotation ? img.rotation : '0') );
+        }
+    // -->
+    </script>
+    
+    <style type="text/css">
+    <!--
+        canvas {
+            
+        }
+    // -->
+    </style>
+</head>
+<body onLoad="CanvasOnload()">
+
+<h1>Image rotate</h1>
+
+<p>
+    Simply use the rotate left/right links to rotate the image left and right.
+</p>
+
+
+<div style="float: left">
+    <span style="width: 65px"></span>
+
+    <span style="text-align: center; width: 65px">
+        <a href="#"
+           onmousedown="mousedown = true; ZoomOut(document.getElementById('zce'))"
+           onmouseout="mousedown = false"
+           onmouseup="mousedown = false"
+           style="text-decoration: none">
+
+            <img src="minus.png" alt="Zoom out" border="0" />
+        </a>
+        
+        Zoom out
+    </span>
+
+    <span style="text-align: center; width: 65px">
+        <a href="#"
+           onmousedown="mousedown = true; ZoomIn(document.getElementById('zce'))"
+           onmouseup="mousedown = false"
+           onmouseout="mousedown = false"
+           style="text-decoration: none">
+
+            <img src="plus.png" alt="Zoom in" border="0" />
+        </a>
+        
+        Zoom in
+    </span>
+
+    <br />
+
+    <span style="text-align: center; width: 65px">
+        <a href="javascript: location.href = 'rotate.html'" style="text-decoration: none">
+            <img src="reset.png" alt="Reset the image" border="0" />
+        </a>
+        
+        Reset
+    </span>
+
+    <span style="text-align: center; width: 65px">
+        <a href="#" onMouseDown="mousedown = true; Rotate(document.getElementById('zce'), -0.05); return false" onMouseUp="mousedown = false" onMouseOut="mousedown = false" style="text-decoration: none">
+            <img src="rotate_left.png" alt="Rotate left" border="0" />
+        </a>
+        
+        Left
+    </span>
+
+    <span style="text-align: center; width: 65px">
+        <a href="#" onMouseDown="mousedown = true; Rotate(document.getElementById('zce'), 0.05); return false" onMouseUp="mousedown = false" onMouseOut="mousedown = false" style="text-decoration: none">
+            <img src="rotate_right.png" alt="Rotate right" border="0" />
+        </a>
+        
+        Right
+    </span>
+</div>
+
+<canvas id="ff_canvas" width="73" height="50">
+    <img src="ImageMain.gif"
+         alt="Zend"
+         width="1000"
+         height="607"
+         id="zce"
+         style="margin-left: 50px; position: absolute; top: 110px; left: 250px; cursor: hand" /></canvas>
+
+<br clear="all" />
+<br />
+
+</body>
+</html>

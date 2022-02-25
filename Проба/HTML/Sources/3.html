@@ -1,0 +1,49 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+
+"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+<script> 
+var E; 
+var E2; 
+function prepare()
+{ 
+var S=document.getElementById("sv") 
+var SD=S.getSVGDocument();
+ E=SD.getElementById('E'); 
+ E2=SD.getElementById('E2'); 
+} 
+function change(v)
+{ E.setAttribute("fill", v);
+ }
+ 
+ function change2(v)
+{ E2.setAttribute("d", v);
+ }
+ </script>
+</head> 
+<body onload="prepare()">
+<div align="center" style="width:640; height:480; border-width:1px;">
+ <embed id="sv" src="ovaltest.svg" width=720 height=500> </embed> 
+<form name="f">
+ <select onchange="change(this.value)"> 
+<option value="orange">orange</option>
+ <!--etc.--> 
+<option value="red">red</option> 
+</select> 
+<hr>
+ <select onchange="change2(this.value)"> 
+<option value="M 250 400 L 350 200 L 250 60 L 180 10z">1</option>
+ <!--etc.--> 
+<option value="M 450 100 L 350 200 L 250 60 L 180 10z">2</option> 
+</select> 
+</form>
+</div>
+
+
+</body>
+</html> 
